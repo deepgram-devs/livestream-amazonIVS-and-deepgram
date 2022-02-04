@@ -1,27 +1,23 @@
 const envConfig = require("dotenv").config();
+const express = require("express");
+const app = express();
 const { Deepgram } = require("@deepgram/sdk");
 const deepgram = new Deepgram(process.env.DEEPGRAM_API);
-const WebSocket = require("ws");
+const cors = require("cors");
+const port = 8080;
 
-const wss = new WebSocket.Server({ port: "8080" });
-const deepgramSocket = deepgram.transcription.live({
-  punctuate: true,
-  endpointing: true,
+app.use(cors());
+
+app.get("/deepgram-token", async (req, res) => {
+  const newKey = await deepgram.keys.create(
+    process.env.DEEPGRAM_PROJECT_ID,
+    "Temporary key - works for 10 secs",
+    ["usage:write"],
+    { timeToLive: 10 }
+  );
+  res.send(newKey);
 });
 
-let transcript;
-
-wss.on("connection", (ws) => {
-  ws.on("message", (message) => {
-    deepgramSocket.send(message);
-    ws.send(transcript);
-  });
-});
-
-deepgramSocket.addListener("transcriptReceived", (transcription) => {
-  transcript = JSON.parse(transcription).channel.alternatives[0].transcript;
-});
-
-deepgramSocket.addListener("open", () => {
-  console.log("Connection opened!");
+app.listen(port, () => {
+  console.log(`Example app listening at http://localhost:${port}`);
 });
