@@ -9,6 +9,9 @@
 <script></script>
 
 <style>
+body {
+  margin: 0;
+}
 #app {
   font-family: "Press Start 2P";
   height: 100vh;

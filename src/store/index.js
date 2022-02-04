@@ -12,12 +12,11 @@ const store = createStore({
     },
   },
   mutations: {
+    //TODO: Change this to use fetch to get code from server
     verifyCode(state, code) {
       if (code === "cat") {
         state.allowAccess = true;
-        // console.log("store", "allowAccess updated to", state.allowAccess);
       } else {
-        // console.log("Incorrect code, allowAccess:", state.allowAccess);
         alert("Please enter the correct code");
       }
     },

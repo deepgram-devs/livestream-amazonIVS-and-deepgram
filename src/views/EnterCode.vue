@@ -10,7 +10,6 @@
 </template>
 
 <script>
-// @ is an alias to /src
 import { ref } from "vue";
 import { useStore } from "vuex";
 import { useRouter } from "vue-router";
@@ -20,6 +19,7 @@ export default {
   setup() {
     const store = useStore();
     const router = useRouter();
+
     //Verify Code
     let code = ref("");
     function submitCode() {
@@ -70,15 +70,21 @@ button {
   -webkit-box-sizing: content-box;
   box-sizing: content-box;
   border-radius: 5px;
+  padding: 0.2em 0.8em;
 }
 
 button {
   background-color: rgb(53, 53, 146);
   border: rgb(250, 214, 8) 2px solid;
   color: rgb(250, 214, 8);
+  width: fit-content;
 }
 
 button:hover {
   background-color: rgb(68, 68, 143);
+}
+
+button:active {
+  background-color: rgb(147, 147, 189);
 }
 </style>

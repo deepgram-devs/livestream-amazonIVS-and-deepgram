@@ -11,13 +11,10 @@ const routes = [
   {
     path: "/channel",
     name: "StreamChannel",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../views/StreamChannel.vue"),
+    component: () => import("../views/StreamChannel.vue"),
     beforeEnter(to, from, next) {
       if (
+        //TODO: Turn back on after done with Stream page
         store.state.allowAccess === true ||
         store.state.allowAccess === false
       ) {
