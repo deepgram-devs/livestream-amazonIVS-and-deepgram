@@ -23,15 +23,13 @@ export default {
     //Verify Code
     let code = ref("");
     function submitCode() {
-      console.log(store.state.allowAccess);
       store.dispatch("verifyCode", code.value).then(() => {
         if (store.state.allowAccess) {
           router.push({ name: "StreamChannel" });
         }
       });
-      console.log("before submit", code.value);
+
       code.value = "";
-      console.log("after submit", code.value);
     }
 
     return { code, submitCode };

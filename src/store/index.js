@@ -15,9 +15,9 @@ const store = createStore({
     verifyCode(state, code) {
       if (code === "cat") {
         state.allowAccess = true;
-        console.log("store", "allowAccess updated to", state.allowAccess);
+        // console.log("store", "allowAccess updated to", state.allowAccess);
       } else {
-        console.log("Incorrect code, allowAccess:", state.allowAccess);
+        // console.log("Incorrect code, allowAccess:", state.allowAccess);
         alert("Please enter the correct code");
       }
     },

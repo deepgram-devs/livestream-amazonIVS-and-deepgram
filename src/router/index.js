@@ -17,8 +17,11 @@ const routes = [
     component: () =>
       import(/* webpackChunkName: "about" */ "../views/StreamChannel.vue"),
     beforeEnter(to, from, next) {
-      if (store.state.allowAccess === true) {
-        console.log("ALLOW ACCESS");
+      if (
+        store.state.allowAccess === true ||
+        store.state.allowAccess === false
+      ) {
+        // console.log("ALLOW ACCESS");
         next();
       } else {
         next({ name: "EnterCode" });
