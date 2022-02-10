@@ -13,12 +13,9 @@ const routes = [
     name: "StreamChannel",
     component: () => import("../views/StreamChannel.vue"),
     beforeEnter(to, from, next) {
-      if (
-        //TODO: Turn back on after done with Stream page
-        store.state.allowAccess === true ||
-        store.state.allowAccess === false
-      ) {
-        // console.log("ALLOW ACCESS");
+      store.state.allowAccess;
+      if (store.state.allowAccess === true) {
+        console.log("ALLOW ACCESS");
         next();
       } else {
         next({ name: "EnterCode" });

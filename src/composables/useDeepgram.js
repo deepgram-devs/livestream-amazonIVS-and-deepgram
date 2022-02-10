@@ -24,10 +24,10 @@ const getData = async () => {
 const openDeepgramSocket = () => {
   const { mediaRecorder } = getUserMic();
   recorder = mediaRecorder;
-  const socket = new WebSocket("wss://api.deepgram.com/v1/listen", [
-    "token",
-    key,
-  ]);
+  const socket = new WebSocket(
+    "wss://api.deepgram.com/v1/listen?punctuate=true",
+    ["token", key]
+  );
 
   socket.onopen = () => {
     status.value = "";

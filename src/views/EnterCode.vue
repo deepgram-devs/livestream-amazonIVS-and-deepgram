@@ -23,11 +23,27 @@ export default {
     //Verify Code
     let code = ref("");
     function submitCode() {
-      store.dispatch("verifyCode", code.value).then(() => {
-        if (store.state.allowAccess) {
-          router.push({ name: "StreamChannel" });
-        }
-      });
+      const requestOptions = {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ code: code }),
+      };
+      fetch("http://localhost:8080/secret-code", requestOptions)
+        .then((response) => response.json())
+        .then((data) => {
+          if (data === "Correct code") {
+            store.dispatch("verifyCode", true);
+          } else {
+            store.dispatch("verifyCode", false);
+          }
+        })
+        .then(() => {
+          if (store.state.allowAccess) {
+            router.push({ name: "StreamChannel" });
+          } else {
+            alert("Incorrect code");
+          }
+        });
 
       code.value = "";
     }
