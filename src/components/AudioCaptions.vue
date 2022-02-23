@@ -1,9 +1,10 @@
 <template>
   <div>
     <p class="status">{{ status }}</p>
-
-    <button @click="openStream()">Start Captions</button>
-    <button @click="closeStream()">Stop Captions</button>
+    <div class="btn-container">
+      <button class="dg-btn" @click="openStream()">Start Captions</button>
+      <button class="dg-btn-stop" @click="closeStream()">Stop Captions</button>
+    </div>
   </div>
 </template>
 
@@ -19,13 +20,11 @@ export default {
 </script>
 
 <style scoped>
-p {
-  font-size: 2em;
+.btn-container {
+  display: flex;
+  justify-content: center;
 }
-
 .status {
   height: 5vh;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 </style>

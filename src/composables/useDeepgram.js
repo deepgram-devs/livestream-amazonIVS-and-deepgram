@@ -3,7 +3,7 @@ import getUserMic from "../composables/getUserMic";
 
 let key;
 let recorder;
-const status = ref("Not Connected");
+const status = ref("Deepgram Not Connected");
 
 //Get token from Deepgram and once it arrives, open Deepgram socket
 const getData = async () => {
@@ -16,6 +16,9 @@ const getData = async () => {
       openDeepgramSocket();
     })
     .catch((error) => {
+      if (error) {
+        status.value = "Error. Please try again.";
+      }
       console.log("Looks like there was a problem: \n", error);
     });
 };
@@ -30,15 +33,18 @@ const openDeepgramSocket = () => {
   );
 
   socket.onopen = () => {
-    status.value = "";
-    console.log("Connection opened.");
+    if (recorder.state != "recording") {
+      status.value = "";
+      console.log("Connection opened.");
 
-    recorder.addEventListener("dataavailable", async (event) => {
-      if (event.data.size > 0 && socket.readyState == 1) {
-        socket.send(event.data);
-      }
-    });
-    recorder.start(200);
+      recorder.addEventListener("dataavailable", async (event) => {
+        if (event.data.size > 0 && socket.readyState == 1) {
+          socket.send(event.data);
+        }
+      });
+
+      recorder.start(200);
+    }
   };
 
   socket.onmessage = (message) => {
@@ -57,8 +63,10 @@ const openDeepgramSocket = () => {
 //Methods to make available in component
 
 const openStream = () => {
-  status.value = "Connected";
-  getData();
+  if (status.value != "Connected") {
+    status.value = "Connected";
+    getData();
+  }
 };
 
 const closeStream = () => {

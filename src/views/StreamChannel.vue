@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1 class="header-wrap">Sandra's Channel</h1>
+    <h1 class="header-wrap">VIP Channel</h1>
     <video-player />
     <audio-captions />
   </div>

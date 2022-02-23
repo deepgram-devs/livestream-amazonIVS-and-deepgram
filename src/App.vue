@@ -6,51 +6,62 @@
   </div>
 </template>
 
-<script></script>
-
 <style>
-body {
-  margin: 0;
+h1,
+h2 {
+  font-family: "Cairo", sans-serif;
 }
-#app {
-  font-family: "Press Start 2P";
+
+body {
+  font-family: "Source Sans Pro", sans-serif;
   height: 100vh;
   text-align: center;
-  background-color: rgb(114, 8, 184);
-  color: rgb(250, 214, 8);
 }
 
-#nav {
-  padding: 30px;
+button {
+  font-family: "Fira Code", sans-serif;
+  height: 35px;
+  width: 175px;
+  padding: 0.5rem 1.5rem;
+  border-radius: 0.375rem;
+  display: flex;
+  justify-content: center;
+  font-weight: 700;
+  border: 1px solid #141e29;
 }
 
-#nav a {
-  font-weight: bold;
-  color: rgb(251, 169, 37);
-  /* color: #2c3e50; */
+input {
+  border-radius: 0.375rem;
+  height: 30px;
+  width: 150px;
+  margin: 0 10px;
+  border: 1px solid #141e29;
+  font-family: "Fira Code", sans-serif;
 }
 
-#nav a.router-link-exact-active {
-  color: rgb(250, 214, 8);
+.dg-btn {
+  background-color: #38edac;
+  color: #141e29;
 }
 
-h1 {
-  font-size: 3em;
+.dg-btn:hover {
+  background-color: #80f4ca;
 }
 
-.header-wrap {
-  display: block;
-  width: auto;
-  height: auto;
-  padding: 0;
-  text-align: center;
-  transform: perspective(200px) rotateX(5deg);
-  letter-spacing: 0.1em;
-  text-shadow: 0 -1px 0 #fff, 0 1px 0 #c78802, 0 2px 0 #c78801, 0 3px 0 #c78801,
-    0 4px 0 #c78801, 0 5px 0 #c78801, 0 6px 0 #c78801, 0 7px 0 #c78801,
-    0 8px 0 rgb(53, 53, 146), 0 9px 0 rgb(53, 53, 146),
-    0 10px 0 rgb(53, 53, 146), 0 11px 0 rgb(53, 53, 146),
-    0 12px 0 rgb(53, 53, 146), 0 13px 0 rgb(53, 53, 146),
-    0 14px 0 rgb(53, 53, 146), 0 15px 0 rgb(53, 53, 146);
+.dg-btn:active {
+  background-color: #00a971;
+}
+
+.dg-btn-stop {
+  margin-left: 10px;
+  background-color: #fe5c5c;
+}
+
+.dg-btn-stop:hover {
+  background-color: #fe8888;
+}
+
+.dg-btn-stop:active {
+  background-color: #d04b4b;
 }
 </style>

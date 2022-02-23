@@ -1,10 +1,18 @@
 <template>
   <div class="enter-code">
-    <h1 class="header-wrap">Enter with the code</h1>
+    <h1>VIP Live Stream</h1>
+    <p>
+      A live stream you have been specially invited to.... powered by Deepgram,
+      AWS IVS, and Netlify.
+    </p>
+    <img src="../../assets/dg-logo.svg" class="logo" />
+    <p>Deepgram Demos</p>
+    <h2 class="form-title">Enter with the code:</h2>
+
     <form @submit.prevent="submitCode">
       <label for="code"> Code: </label>
       <input v-model="code" type="text" name="code" value />
-      <button type="submit" name="button">Submit</button>
+      <button type="submit" name="button" class="dg-btn">Submit</button>
     </form>
   </div>
 </template>
@@ -53,54 +61,27 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 form {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.form-title {
   margin-top: 100px;
 }
 
-button {
-  height: 35px;
-  width: 150px;
-  font-family: "Press Start 2P";
+.logo {
+  height: 10vh;
+  margin-top: 100px;
 }
 
-input {
-  height: 30px;
-  background-color: papayawhip;
-  border: rgb(251, 169, 37) 5px solid;
-  font-family: inherit;
-  color: rgb(16, 97, 248);
+.enter-code > h1 {
+  font-size: 3.5em;
 }
 
-label,
-input,
-button {
-  font-size: inherit;
-  padding: 0.2em;
-  margin: 0.1em 0.2em;
-  /* the following ensures they're all using the same box-model for rendering */
-  -moz-box-sizing: content-box; /* or `border-box` */
-  -webkit-box-sizing: content-box;
-  box-sizing: content-box;
-  border-radius: 5px;
-  padding: 0.2em 0.8em;
-}
-
-button {
-  background-color: rgb(53, 53, 146);
-  border: rgb(250, 214, 8) 2px solid;
-  color: rgb(250, 214, 8);
-  width: fit-content;
-}
-
-button:hover {
-  background-color: rgb(68, 68, 143);
-}
-
-button:active {
-  background-color: rgb(147, 147, 189);
+.enter-code > p {
+  font-size: 1.2em;
 }
 </style>
