@@ -3,7 +3,7 @@
     <h1>VIP Live Stream</h1>
     <p>
       A live stream you have been specially invited to.... powered by Deepgram,
-      AWS IVS, and Netlify.
+      Amazon IVS, and OBS.
     </p>
     <img src="../../assets/dg-logo.svg" class="logo" />
     <p>Deepgram Demos</p>
@@ -11,7 +11,7 @@
 
     <form @submit.prevent="submitCode">
       <label for="code"> Code: </label>
-      <input v-model="code" type="text" name="code" value />
+      <input v-model="code" type="password" name="code" value />
       <button type="submit" name="button" class="dg-btn">Submit</button>
     </form>
   </div>

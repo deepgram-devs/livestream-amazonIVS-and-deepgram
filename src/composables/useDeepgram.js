@@ -51,7 +51,9 @@ const openDeepgramSocket = () => {
     const received = JSON.parse(message.data);
     const transcript = received.channel.alternatives[0].transcript;
     if (transcript && received.is_final) {
+      // setTimeout(() => {
       status.value = transcript + "";
+      // }, 2000);
     }
   };
 

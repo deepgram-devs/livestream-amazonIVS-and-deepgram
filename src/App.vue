@@ -1,7 +1,7 @@
 <template>
   <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/channel">Channel</router-link>
+    <router-link class="link" to="/">Home</router-link> |
+    <router-link class="link" to="/channel">Channel</router-link>
     <router-view />
   </div>
 </template>
@@ -63,5 +63,9 @@ input {
 
 .dg-btn-stop:active {
   background-color: #d04b4b;
+}
+
+.link {
+  color: #fb3640;
 }
 </style>

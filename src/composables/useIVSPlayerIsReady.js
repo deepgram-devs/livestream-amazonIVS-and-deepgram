@@ -1,3 +1,4 @@
+//make this more agnostic to work for appending any script
 export default new Promise((res) => {
   const script = document.createElement("script");
   script.setAttribute(
