@@ -1,29 +1,29 @@
-# Vue-Livestream-Deepgram
+# livestream-amazonIVS-and-deepgram
+
+This is the example project to go along with the tutorial **How to Build a Live Streaming Web Application with Amazon IVS and Deepgram** found at https://developers.deepgram.com/blog/2022/03/build-a-livestream-web-application-with-amazon-ivs-and-deepgram/
 
 ## Project setup
 
-```
-npm install
-```
+First, clone the project. Then install the dependencies with `npm install`.
 
-### Compiles and hot-reloads for development
+## Set up .env file
 
-```
-npm run serve
-```
+Rename the .env-example file to .env. Then add the values for each environment variable.
 
-### Compiles and minifies for production
+## Run the development environment
 
-```
-npm run build
-```
+Run the node the server with `npm run start`.
 
-### Lints and fixes files
+Run the front-end Vue cli with `npm run serve`.
 
-```
-npm run lint
-```
+## Live streaming
 
-### Customize configuration
+To see your livestream, be sure to:
 
-See [Configuration Reference](https://cli.vuejs.org/config/).
+- Download [Open Broadcast Software](https://obsproject.com/) software
+- Set up an AWS account and create an [Amazon IVS](https://aws.amazon.com/ivs/) account
+- Configure the stream to connect (follow instructions in the [tutorial](https://developers.deepgram.com/blog/2022/03/build-a-livestream-web-application-with-amazon-ivs-and-deepgram/))
+
+## Captions
+
+To use Deepgram speech-to-text API, [set up an account](https://console.deepgram.com/signup). This will give you $150 in free credit without the need to enter a credit card.
