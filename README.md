@@ -12,9 +12,9 @@ Rename the .env-example file to .env. Then add the values for each environment v
 
 ## Run the development environment
 
-Run the node the server with `npm run start`.
+Run the node server with `npm run start`.
 
-Run the front-end Vue cli with `npm run serve`.
+Run the frontend Vue cli with `npm run serve`.
 
 ## Live streaming
 
