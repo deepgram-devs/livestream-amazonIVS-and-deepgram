@@ -5,7 +5,7 @@
       A live stream you have been specially invited to.... powered by Deepgram,
       Amazon IVS, and OBS.
     </p>
-    <img src="../../assets/dg-logo.svg" class="logo" />
+    <img src="../assets/dg-logo.svg" class="logo" />
     <p>Deepgram Demos</p>
     <h2 class="form-title">Enter with the code:</h2>
 

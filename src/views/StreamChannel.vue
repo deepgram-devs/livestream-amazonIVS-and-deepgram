@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1 class="header-wrap">VIP Channel</h1>
+    <h1>VIP Channel</h1>
     <video-player />
     <audio-captions />
   </div>
