@@ -13,7 +13,6 @@ const routes = [
     name: "StreamChannel",
     component: () => import("../views/StreamChannel.vue"),
     beforeEnter(to, from, next) {
-      store.state.allowAccess;
       if (store.state.allowAccess === true) {
         console.log("ALLOW ACCESS");
         next();
