@@ -1,71 +1,30 @@
 <template>
-  <div id="nav">
-    <router-link class="link" to="/">Home</router-link> |
-    <router-link class="link" to="/channel">Channel</router-link>
-    <router-view />
-  </div>
+  <nav>
+    <router-link to="/">Home</router-link> |
+    <router-link to="/channel">Channel</router-link>
+  </nav>
+  <router-view />
 </template>
 
 <style>
-h1,
-h2 {
-  font-family: "Cairo", sans-serif;
-}
-
-body {
-  font-family: "Source Sans Pro", sans-serif;
-  height: 100vh;
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   text-align: center;
+  color: #2c3e50;
 }
 
-button {
-  font-family: "Fira Code", sans-serif;
-  height: 35px;
-  width: 175px;
-  padding: 0.5rem 1.5rem;
-  border-radius: 0.375rem;
-  display: flex;
-  justify-content: center;
-  font-weight: 700;
-  border: 1px solid #141e29;
+nav {
+  padding: 30px;
 }
 
-input {
-  border-radius: 0.375rem;
-  height: 30px;
-  width: 150px;
-  margin: 0 10px;
-  border: 1px solid #141e29;
-  font-family: "Fira Code", sans-serif;
+nav a {
+  font-weight: bold;
+  color: #2c3e50;
 }
 
-.dg-btn {
-  background-color: #38edac;
-  color: #141e29;
-}
-
-.dg-btn:hover {
-  background-color: #80f4ca;
-}
-
-.dg-btn:active {
-  background-color: #00a971;
-}
-
-.dg-btn-stop {
-  margin-left: 10px;
-  background-color: #fe5c5c;
-}
-
-.dg-btn-stop:hover {
-  background-color: #fe8888;
-}
-
-.dg-btn-stop:active {
-  background-color: #d04b4b;
-}
-
-.link {
-  color: #fb3640;
+nav a.router-link-exact-active {
+  color: #42b983;
 }
 </style>

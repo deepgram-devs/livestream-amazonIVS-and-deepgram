@@ -1,19 +1,5 @@
 <template>
   <div>
-    <h1>VIP Channel</h1>
-    <video-player />
-    <audio-captions />
+    <h1>Stream Channel</h1>
   </div>
 </template>
-
-<script>
-import VideoPlayer from "@/components/VideoPlayer";
-import AudioCaptions from "@/components/AudioCaptions.vue";
-export default {
-  name: "StreamChannel",
-  components: {
-    VideoPlayer,
-    AudioCaptions,
-  },
-};
-</script>
