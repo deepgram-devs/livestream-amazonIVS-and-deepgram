@@ -1,6 +1,6 @@
 import { ref } from "vue";
 
-export default function useCreateIVSPlayer() {
+export default function useIVSChannel() {
   if (IVSPlayer && IVSPlayer.isPlayerSupported) {
     const player = IVSPlayer.create();
     player.attachHTMLVideoElement(document.getElementById("video-player"));

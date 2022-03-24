@@ -12,16 +12,16 @@
 </template>
 
 <script>
-import useIVSPlayerIsReady from "../composables/useIVSPlayerIsReady";
-import useCreateIVSPlayer from "../composables/useCreateIVSPlayer";
+import useIVSPlayer from "../composables/useIVSPlayer";
+import useIVSChannel from "../composables/useIVSChannel";
 import { ref, watch } from "vue";
 export default {
   name: "VideoPlayer",
   setup() {
     let IVSStatus = ref("Is Not Connected");
 
-    useIVSPlayerIsReady.then(() => {
-      const { playerIsLoaded } = useCreateIVSPlayer();
+    useIVSPlayer.then(() => {
+      const { playerIsLoaded } = useIVSChannel();
 
       watch(playerIsLoaded, () => {
         if (playerIsLoaded.value) {
