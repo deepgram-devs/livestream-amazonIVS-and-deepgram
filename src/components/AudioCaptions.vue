@@ -1,6 +1,6 @@
 <template>
   <div>
-    <p class="status">{{ status }}</p>
+    <p class="status">{{ deepgramStatus }}</p>
     <div class="btn-container">
       <button class="dg-btn" @click="openStream()">Start Captions</button>
       <button class="dg-btn-stop" @click="closeStream()">Stop Captions</button>
@@ -9,12 +9,21 @@
 </template>
 
 <script>
-import useDeepgram from "../composables/useDeepgram";
-
+import { ref, watch } from "vue";
+import useDeepgramKey from "@/composables/useDeepgramKey";
+import useDeepgramSocket from "@/composables/useDeepgramSocket";
 export default {
   setup() {
-    const { openStream, closeStream, status } = useDeepgram();
-    return { openStream, closeStream, status };
+    let deepgramStatus = ref("Deepgram Not Connected");
+    useDeepgramKey().then((res) => {
+      deepgramStatus.value = res.DGStatus.value;
+    });
+    const { DGStatus_socket, openStream, closeStream } = useDeepgramSocket();
+    watch(DGStatus_socket, () => {
+      deepgramStatus.value = DGStatus_socket.value;
+    });
+
+    return { deepgramStatus, openStream, closeStream };
   },
 };
 </script>
