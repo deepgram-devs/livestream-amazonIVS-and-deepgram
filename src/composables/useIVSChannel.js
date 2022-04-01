@@ -1,15 +1,16 @@
 import { ref } from "vue";
 
 export default function useIVSChannel() {
-  if (IVSPlayer && IVSPlayer.isPlayerSupported) {
-    const player = IVSPlayer.create();
+  let playerIsLoaded = ref(false);
+
+  if (window.IVSPlayer && window.IVSPlayer.isPlayerSupported) {
+    const player = window.IVSPlayer.create();
     player.attachHTMLVideoElement(document.getElementById("video-player"));
     player.load(
       "https://fe6f355df852.us-east-1.playback.live-video.net/api/video/v1/us-east-1.379562766779.channel.MNypeBLg2ede.m3u8"
     );
     player.play();
 
-    let playerIsLoaded = ref(false);
     let checkInterval = setInterval(() => {
       if (player.core.isLoaded) {
         playerIsLoaded.value = true;

@@ -12,9 +12,10 @@
 </template>
 
 <script>
+import { ref, watch } from "vue";
 import useIVSPlayer from "../composables/useIVSPlayer";
 import useIVSChannel from "../composables/useIVSChannel";
-import { ref, watch } from "vue";
+
 export default {
   name: "VideoPlayer",
   setup() {
@@ -22,14 +23,12 @@ export default {
 
     useIVSPlayer.then(() => {
       const { playerIsLoaded } = useIVSChannel();
-
       watch(playerIsLoaded, () => {
         if (playerIsLoaded.value) {
           IVSStatus.value = "Is Connected";
         }
       });
     });
-
     return { IVSStatus };
   },
 };

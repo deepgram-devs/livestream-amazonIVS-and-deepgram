@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router";
 import EnterCode from "../views/EnterCode.vue";
-import store from "../store";
+// import store from "../store";
 
 const routes = [
   {
@@ -12,15 +12,15 @@ const routes = [
     path: "/channel",
     name: "StreamChannel",
     component: () => import("../views/StreamChannel.vue"),
-    beforeEnter(to, from, next) {
-      if (store.state.allowAccess === true) {
-        console.log("ALLOW ACCESS");
-        next();
-      } else {
-        next({ name: "EnterCode" });
-        alert("Please enter the secret code");
-      }
-    },
+    // beforeEnter(to, from, next) {
+    //   if (store.state.allowAccess === true) {
+    //     console.log("ALLOW ACCESS");
+    //     next();
+    //   } else {
+    //     next({ name: "EnterCode" });
+    //     alert("Please enter the secret code");
+    //   }
+    // },
   },
 ];
 
